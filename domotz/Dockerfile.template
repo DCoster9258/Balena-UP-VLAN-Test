@@ -18,6 +18,11 @@ RUN printf "#!/bin/sh\necho N 2" > /sbin/runlevel \
 
 RUN sed -i 's/raspberry/docker/g' /opt/domotz/etc/domotz.env
 
+
+RUN ln -sf /dev/stdout /opt/domotz/var/log/domotz/domotz_forever.log \
+    && ln -sf /dev/stderr /opt/domotz/var/log/domotz/domotz_lifecycle.log \
+    && ln -sf /dev/stderr /opt/domotz/var/log/domotz/domotz_status.log
+    
 RUN mkdir /opt/utils
 COPY runme.sh /opt/utils
 COPY start.sh /opt/utils
