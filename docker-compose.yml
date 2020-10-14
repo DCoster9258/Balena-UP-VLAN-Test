@@ -1,0 +1,50 @@
+version: "2.1"
+services:
+  domotz:
+    build: ./domotz
+    container_name: domotz
+    restart: always
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+    networks:
+      - domotz
+    volumes:
+      - vol-domotz:/opt/domotz/etc
+    labels:
+      io.balena.features.kernel-modules: '1'
+      io.balena.features.firmware: '1'
+      io.balena.features.dbus: '1'
+      io.balena.features.supervisor-api: '1'
+      io.balena.features.balena-api: '1'
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    network_mode: bridge
+    ports:
+      - 80:80
+    labels:
+      io.balena.features.kernel-modules: '1'
+      io.balena.features.firmware: '1'
+      io.balena.features.dbus: '1'
+      io.balena.features.supervisor-api: '1'
+      io.balena.features.balena-api: '1'
+  dhcpd:
+    build: ./dhcpd
+    container_name: dhcpd
+    network_mode: host
+    volumes:
+      - vol-dhcpd:/data
+    command: enp3s0
+    labels:
+      io.balena.features.kernel-modules: '1'
+      io.balena.features.firmware: '1'
+      io.balena.features.dbus: '1'
+      io.balena.features.supervisor-api: '1'
+      io.balena.features.balena-api: '1'
+
+volumes:
+  vol-domotz:
+    external: false
+  vol-dhcpd:
+    external: false
