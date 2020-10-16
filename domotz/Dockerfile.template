@@ -47,3 +47,4 @@ CMD service domotz start \
  && /opt/utils/vlan.sh
  
 CMD /opt/utils/vlan.sh
+ 
