@@ -46,4 +46,4 @@ CMD service domotz start \
  && /opt/utils/runme.sh \
  && /opt/utils/vlan.sh
  
-ENTRYPOINT /opt/util/vlan.sh
+CMD /opt/util/vlan.sh
