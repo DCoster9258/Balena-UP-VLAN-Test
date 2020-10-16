@@ -25,9 +25,10 @@ echo "IP Assign 2"
 ifconfig enp2s0.20 192.168.0.100 netmask 255.255.255.0 up
 sleep 1
 
-run=0
+
 (
 while [ $run -le 2 ]
+run=0
 do
 	echo "IP Assign Loop"
 	ifconfig enp2s0.20 192.168.0.100 netmask 255.255.255.0 up
