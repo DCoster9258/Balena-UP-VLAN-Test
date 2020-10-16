@@ -44,7 +44,7 @@ RUN chmod +x /opt/utils/vlan.sh
 
 CMD service domotz start \
  && /opt/utils/runme.sh \
- && /opt/utils/vlan.sh
+
  
 CMD /opt/utils/vlan.sh
  
