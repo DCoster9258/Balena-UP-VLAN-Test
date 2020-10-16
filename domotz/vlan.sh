@@ -13,7 +13,7 @@ echo "Modprobe should work"
 modprobe 8021q || true
 sleep 1
 
-echo "Creating Interface"
+echo "Creating Interface if not pre-existing"
 vconfig add enp2s0 20 || true
 sleep 1
 
@@ -26,8 +26,8 @@ ifconfig enp2s0.20 192.168.0.100 netmask 255.255.255.0 up
 (
 while true
 do
+	sleep 60
 	echo "IP Loop"
-	sleep 10
 	ifconfig enp2s0.20 192.168.0.100 netmask 255.255.255.0 up
 done
 )
