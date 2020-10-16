@@ -10,9 +10,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates
 
 RUN apt-get install -y apt-utils
 RUN apt-get install -y vlan
-RUN modprobe 8021q; exit 0
-RUN vconfig add enp2s0 20; exit 0
-RUN ifconfig enp2s0.20 192.168.0.100 netmask 255.255.255.0 up; exit 0
 
 RUN printf "#!/bin/sh\necho N 2" > /sbin/runlevel \
  && chmod +x /sbin/runlevel \
@@ -34,9 +31,6 @@ COPY runme.sh /opt/utils
 COPY start.sh /opt/utils
 COPY vlan.sh /opt/utils
 
-RUN modprobe 8021q; exit 0
-RUN vconfig add enp2s0 20; exit 0
-RUN ifconfig enp2s0.20 192.168.0.100 netmask 255.255.255.0 up; exit 0
 
 RUN chmod +x /opt/utils/runme.sh
 RUN chmod +x /opt/utils/start.sh
