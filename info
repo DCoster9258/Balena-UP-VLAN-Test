@@ -1,0 +1,5 @@
+VLAN 20 with IP 192.168.0.100 on interface enp2s0
+
+Default VLAN on enp2s0 DHCP Host of 192.168.222.0/24
+
+Interface enp3s0 DHCP, main connection for Domotz
