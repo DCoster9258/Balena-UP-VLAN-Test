@@ -33,5 +33,6 @@ do
 	echo "IP Assign Loop"
 	ifconfig enp2s0.20 192.168.0.100 netmask 255.255.255.0 up
 	sleep 60
+	run++
 done
 )
