@@ -30,4 +30,5 @@ do
 	sleep 10
 	ifconfig enp2s0.20 192.168.0.100 netmask 255.255.255.0 up
 done
+)
 exit 0
