@@ -6,8 +6,8 @@ IP=192.168.0.100 #IP Address for VLAN
 NETMASK=255.255.255.0 #VLAN Netmask
 INTERFACE=enp2s0 #The Interface to VLAN on, enp2s0 or enp3s0
 VLANID=20 #The 802.1q VLAN ID
-VLANINTERFACE=enp2s0.20 #Interface name + VLAN ID seperated by a '.'
-
+#VLANINTERFACE=enp2s0.20 #Interface name + VLAN ID seperated by a '.'
+VLANINTERFACE=$INTERFACE"."$VLANID
 
 echo "Modprobe 1 to fail"
 modprobe 8021q || true
